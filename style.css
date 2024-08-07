@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.tabela,
+th,
+td {
+  border-collapse: collapse;
+  padding: 10px;
+  border: 1px solid rgb(160, 160, 160);
+  text-align: center;
+}
+
+th {
+  background-color: lightgray;
+}
+
+td {
+  width: 300px;
+}
+
+/*# sourceMappingURL=style.css.map */
