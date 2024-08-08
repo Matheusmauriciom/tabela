@@ -9,28 +9,30 @@
     <script src="/js/script.js"></script>
 </head>
 
+
 <body>
 
 
-    <table class="tabela">
+    <main>
+        <table class="tabela">
 
-        <thead>
-            <tr>
-                <th>Posição</th>
-                <th>Time</th>
-                <th>Pontos</th>
-                <th>Jogos</th>
-                <th>Vitórias</th>
-                <th>Empates</th>
-                <th>Derrotas</th>
-                <th>Gols pro</th>
-                <th>Gols contra</th>
-                <th>Saldo de gols</th>
-            </tr>
-        </thead>
+            <thead>
+                <tr>
+                    <th>Posição</th>
+                    <th>Time</th>
+                    <th>Jogos</th>
+                    <th>Vitórias</th>
+                    <th>Empates</th>
+                    <th onclick="derrotas('texto', 10)">Derrotas</th>
+                    <th>Gols pro</th>
+                    <th>Gols contra</th>
+                    <th>Saldo de gols</th>
+                    <th>Pontos</th>
+                </tr>
+            </thead>
 
-        <tbody>
-            <tr>
+            <tbody id="tabela-brasileirao">
+                <!-- <tr>
                 <th>2</th>
                 <td>Flamengo</td>
                 <th>3</th>
@@ -269,17 +271,14 @@
                 <th>8</th>
                 <th>9</th>
                 <th>9</th>
-            </tr>
-        </tbody>
+            </tr> -->
+            </tbody>
 
-        <tfoot>
+            <tfoot>
 
-        </tfoot>
-
-    </table>
-
-
-
+            </tfoot>
+        </table>
+    </main>
 </body>
 
 </html>
