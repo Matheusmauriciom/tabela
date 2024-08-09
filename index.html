@@ -1,284 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
     <title>Tabela brasileirão 2019</title>
     <script src="/js/script.js"></script>
-</head>
+  </head>
 
-
-<body>
-
-
+  <body>
     <main>
-        <table class="tabela">
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Posição</th>
+            <th>Time</th>
+            <th>Jogos</th>
+            <th>Vitórias</th>
+            <th>Empates</th>
+            <th onclick="mostrarDerrotas()">Derrotas</th>
+            <th>Gols pro</th>
+            <th>Gols contra</th>
+            <th>Saldo de gols</th>
+            <th>Pontos</th>
+          </tr>
+        </thead>
 
-            <thead>
-                <tr>
-                    <th>Posição</th>
-                    <th>Time</th>
-                    <th>Jogos</th>
-                    <th>Vitórias</th>
-                    <th>Empates</th>
-                    <th onclick="derrotas('texto', 10)">Derrotas</th>
-                    <th>Gols pro</th>
-                    <th>Gols contra</th>
-                    <th>Saldo de gols</th>
-                    <th>Pontos</th>
-                </tr>
-            </thead>
+        <tbody id="tabela-brasileirao">
 
-            <tbody id="tabela-brasileirao">
-                <!-- <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Flamengo</td>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>9</th>
-            </tr> -->
-            </tbody>
+        </tbody>
 
-            <tfoot>
+        <tfoot>
 
-            </tfoot>
-        </table>
+        </tfoot>
+        
+      </table>
     </main>
-</body>
-
+  </body>
 </html>
