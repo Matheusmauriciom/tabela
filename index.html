@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css" />
-    <title>Tabela brasileirão 2019</title>
-    <script src="/js/script.js"></script>
-  </head>
 
-  <body>
-    <main>
-      <table class="tabela">
-        <thead>
-          <tr>
-            <th onclick="posicao()">Posição</th>
-            <th onclick="time()">Time</th>
-            <th>Jogos</th>
-            <th onclick="vitoria()">Vitórias</th>
-            <th onclick="empate()">Empates</th>
-            <th onclick="derrota()">Derrotas</th>
-            <th onclick="gols_pro()">Gols pro</th>
-            <th onclick="gols_contra()">Gols contra</th>
-            <th onclick="saldo_gols()">Saldo de gols</th>
-            <th>Pontos</th>
-          </tr>
-        </thead>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/style.css" />
+  <title>Tabela brasileirão 2019</title>
+  <script src="/js/script.js"></script>
+</head>
 
-        <tbody id="tabela-brasileirao">
+<body>
+  <main>
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th onclick="ordenarTabela('posicao', 'asc')">Posição</th>
+          <th onclick="ordenarPorNome('asc')">Time</th>
+          <th onclick="ordenarTabela('posicao', 'asc')">Jogos</th>
+          <th onclick="ordenarTabela('vitorias', 'desc')">Vitórias</th>
+          <th onclick="ordenarTabela('empates', 'desc')">Empates</th>
+          <th onclick="ordenarTabela('derrotas', 'desc')">Derrotas</th>
+          <th onclick="ordenarTabela('gols_pro', 'desc')">Gols pro</th>
+          <th onclick="ordenarTabela('gols_contra', 'desc')">Gols contra</th>
+          <th onclick="ordenarTabela('saldo_gols', 'desc')">Saldo de gols</th>
+          <th onclick="ordenarTabela('pontos', 'desc')">Pontos</th>
+        </tr>
+      </thead>
 
-        </tbody>
+      <tbody id="tabela-brasileirao">
 
-        <tfoot>
+      </tbody>
 
-        </tfoot>
-        
-      </table>
-    </main>
-  </body>
+      <tfoot>
+
+      </tfoot>
+
+    </table>
+  </main>
+</body>
+
 </html>

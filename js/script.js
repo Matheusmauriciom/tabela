@@ -24,44 +24,33 @@ document.addEventListener("DOMContentLoaded", function () {
           <td>${time.pontos}</td>
         `;
         tabelaBrasileirao.appendChild(linha);
+        ordenarTabela("pontos", "desc");
       });
     });
 });
 
-function time() {
-  const timeSort = tabela.sort(function (a, b) {
-    return a.time.localeCompare(b.time);
-  });
-
-  const tabelaBrasileirao = document.getElementById("tabela-brasileirao");
-  tabelaBrasileirao.innerHTML = ``;
-  timeSort.forEach((time) => {
-    let linha = document.createElement("tr");
-    linha.innerHTML = `
-    <td>${time.posicao}</td>
-    <td>${time.time}</td>
-    <td>${time.jogos}</td>
-    <td>${time.vitorias}</td>
-    <td>${time.empates}</td>
-    <td>${time.derrotas}</td>
-    <td>${time.gols_pro}</td>
-    <td>${time.gols_contra}</td>
-    <td>${time.saldo_gols}</td>
-    <td>${time.pontos}</td>
-  `;
-    tabelaBrasileirao.appendChild(linha);
-  });
-}
-
-function derrota() {
+function ordenarTabela(criterio, ordem = "asc") {
   const dataSort = tabela.sort(function (a, b) {
-    return a.derrotas - b.derrotas;
+    if (ordem === "asc") {
+      return a[criterio] - b[criterio];
+    } else {
+      return b[criterio] - a[criterio];
+    }
   });
 
   let tabelaBrasileirao = document.getElementById("tabela-brasileirao");
   tabelaBrasileirao.innerHTML = ``;
   dataSort.forEach((time) => {
     const linha = document.createElement("tr");
+
+    // Adiciona a classe 'top-4' se a posição for de 1 a 4
+    if (time.posicao >= 1 && time.posicao <= 4) {
+      linha.classList.add("top-4");
+    }
+    if (time.posicao >= 17 && time.posicao <= 20) {
+      linha.classList.add("bot-4");
+    }
+
     linha.innerHTML = `
       <td>${time.posicao}</td>
       <td>${time.time}</td>
@@ -78,15 +67,29 @@ function derrota() {
   });
 }
 
-function empate() {
-  const empateSort = tabela.sort(function (a, b) {
-    return a.empates - b.empates;
+//organiza por string.
+function ordenarPorNome(ordem = "asc") {
+  const timeSort = tabela.sort(function (a, b) {
+    if (ordem === "asc") {
+      return a.time.localeCompare(b.time);
+    } else {
+      return b.time.localeCompare(a.time);
+    }
   });
 
-  let tabelaBrasileirao = document.getElementById("tabela-brasileirao");
+  const tabelaBrasileirao = document.getElementById("tabela-brasileirao");
   tabelaBrasileirao.innerHTML = ``;
-  empateSort.forEach((time) => {
-    const linha = document.createElement("tr");
+  timeSort.forEach((time) => {
+    let linha = document.createElement("tr");
+
+    // Adiciona a classe 'top-4' se a posição for de 1 a 4
+    if (time.posicao >= 1 && time.posicao <= 4) {
+      linha.classList.add("top-4");
+    }
+    if (time.posicao >= 17 && time.posicao <= 20) {
+      linha.classList.add("bot-4");
+    }
+
     linha.innerHTML = `
     <td>${time.posicao}</td>
     <td>${time.time}</td>
@@ -99,129 +102,6 @@ function empate() {
     <td>${time.saldo_gols}</td>
     <td>${time.pontos}</td>
   `;
-    tabelaBrasileirao.appendChild(linha);
-  });
-}
-
-function vitoria() {
-  const vitoriaSort = tabela.sort(function (a, b) {
-    return b.vitorias - a.vitorias;
-  });
-
-  let tabelaBrasileirao = document.getElementById("tabela-brasileirao");
-  tabelaBrasileirao.innerHTML = ``;
-  vitoriaSort.forEach((time) => {
-    const linha = document.createElement("tr");
-    linha.innerHTML = `
-      <td>${time.posicao}</td>
-      <td>${time.time}</td>
-      <td>${time.jogos}</td>
-      <td>${time.vitorias}</td>
-      <td>${time.empates}</td>
-      <td>${time.derrotas}</td>
-      <td>${time.gols_pro}</td>
-      <td>${time.gols_contra}</td>
-      <td>${time.saldo_gols}</td>
-      <td>${time.pontos}</td>
-    `;
-    tabelaBrasileirao.appendChild(linha);
-  });
-}
-
-function posicao() {
-  const posicaoSort = tabela.sort(function (a, b) {
-    return a.posicao - b.posicao;
-  });
-
-  let tabelaBrasileirao = document.getElementById("tabela-brasileirao");
-  tabelaBrasileirao.innerHTML = ``;
-  posicaoSort.forEach((time) => {
-    const linha = document.createElement("tr");
-    linha.innerHTML = `
-      <td>${time.posicao}</td>
-      <td>${time.time}</td>
-      <td>${time.jogos}</td>
-      <td>${time.vitorias}</td>
-      <td>${time.empates}</td>
-      <td>${time.derrotas}</td>
-      <td>${time.gols_pro}</td>
-      <td>${time.gols_contra}</td>
-      <td>${time.saldo_gols}</td>
-      <td>${time.pontos}</td>
-    `;
-    tabelaBrasileirao.appendChild(linha);
-  });
-}
-
-function gols_pro() {
-  const golsPro = tabela.sort(function (a, b) {
-    return b.gols_pro - a.gols_pro;
-  });
-
-  let tabelaBrasileirao = document.getElementById("tabela-brasileirao");
-  tabelaBrasileirao.innerHTML = ``;
-  golsPro.forEach((time) => {
-    const linha = document.createElement("tr");
-    linha.innerHTML = `
-      <td>${time.posicao}</td>
-      <td>${time.time}</td>
-      <td>${time.jogos}</td>
-      <td>${time.vitorias}</td>
-      <td>${time.empates}</td>
-      <td>${time.derrotas}</td>
-      <td>${time.gols_pro}</td>
-      <td>${time.gols_contra}</td>
-      <td>${time.saldo_gols}</td>
-      <td>${time.pontos}</td>
-    `;
-    tabelaBrasileirao.appendChild(linha);
-  });
-}
-function gols_contra() {
-  const golsContra = tabela.sort(function (a, b) {
-    return a.gols_contra - b.gols_contra;
-  });
-
-  let tabelaBrasileirao = document.getElementById("tabela-brasileirao");
-  tabelaBrasileirao.innerHTML = ``;
-  golsContra.forEach((time) => {
-    const linha = document.createElement("tr");
-    linha.innerHTML = `
-      <td>${time.posicao}</td>
-      <td>${time.time}</td>
-      <td>${time.jogos}</td>
-      <td>${time.vitorias}</td>
-      <td>${time.empates}</td>
-      <td>${time.derrotas}</td>
-      <td>${time.gols_pro}</td>
-      <td>${time.gols_contra}</td>
-      <td>${time.saldo_gols}</td>
-      <td>${time.pontos}</td>
-    `;
-    tabelaBrasileirao.appendChild(linha);
-  });
-}
-function saldo_gols() {
-  const saldoGols = tabela.sort(function (a, b) {
-    return b.saldo_gols - a.saldo_gols;
-  });
-
-  let tabelaBrasileirao = document.getElementById("tabela-brasileirao");
-  tabelaBrasileirao.innerHTML = ``;
-  saldoGols.forEach((time) => {
-    const linha = document.createElement("tr");
-    linha.innerHTML = `
-      <td>${time.posicao}</td>
-      <td>${time.time}</td>
-      <td>${time.jogos}</td>
-      <td>${time.vitorias}</td>
-      <td>${time.empates}</td>
-      <td>${time.derrotas}</td>
-      <td>${time.gols_pro}</td>
-      <td>${time.gols_contra}</td>
-      <td>${time.saldo_gols}</td>
-      <td>${time.pontos}</td>
-    `;
     tabelaBrasileirao.appendChild(linha);
   });
 }

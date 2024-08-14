@@ -1,9 +1,20 @@
+@charset "UTF-8";
 main {
   display: flex;
   justify-content: center;
   padding: 20px;
   background-color: #838282;
   font-family: Arial, sans-serif;
+}
+
+.top-4 {
+  background-color: green;
+  color: white; /* Opcional: para garantir que o texto seja legível */
+}
+
+.bot-4 {
+  background-color: red;
+  color: white;
 }
 
 .tabela {
